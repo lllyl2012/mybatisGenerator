@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- name：对应工程名字   default：需要的缺省任务 （运行ant不指名任务执行任务） -->
+<project default="genfiles" basedir=".">  
+    <path id="build">  
+        <fileset dir="./lib">  
+            <include name="*.jar" />
+        </fileset>  
+    </path>  
+	<property name="svn.filename" value="./"/>  
+    <property name="generated.source.dir" value="${basedir}" />  
+	<target name="clean">
+		<delete dir="${svn.filename}/mybatis/" />
+		<mkdir dir="${svn.filename}/mybatis" />
+	</target>
+    <target name="genfiles" depends="clean,genfilesuser, genfilesadmin">  
+	</target>
+	<!-- 
+	<target name="genfiles" depends="clean, genfilescore,genfilesuser, genfilesadmin">  
+		</target>
+
+  
+	 <target name="genfilescore" description="Generate the files">  
+        <taskdef name="mbgenerator" classname="org.mybatis.generator.ant.GeneratorAntTask">  
+            <classpath refid="build" />  
+        </taskdef>  
+        <mbgenerator overwrite="true" configfile="configuration-base.xml" verbose="false">  
+            <propertyset>  
+                <propertyref name="generated.source.dir" />  
+            </propertyset>  
+        </mbgenerator>  
+    </target>  
+-->  
+	 <target name="genfilesuser" description="Generate the files">  
+        <taskdef name="mbgenerator" classname="org.mybatis.generator.ant.GeneratorAntTask">  
+            <classpath refid="build" />  
+        </taskdef>  
+        <!--configfile：填你MBG文件名  -->  
+        <mbgenerator overwrite="true" configfile="configuration-user.xml" verbose="false">  
+            <propertyset>  
+                <propertyref name="generated.source.dir" />  
+            </propertyset>  
+        </mbgenerator>  
+    </target>  
+
+		 <target name="genfilesadmin" description="Generate the files">  
+        <taskdef name="mbgenerator" classname="org.mybatis.generator.ant.GeneratorAntTask">  
+            <classpath refid="build" />  
+        </taskdef>  
+        <!--configfile：填你MBG文件名  -->  
+        <mbgenerator overwrite="true" configfile="configuration-admin.xml" verbose="false">  
+            <propertyset>  
+                <propertyref name="generated.source.dir" />  
+            </propertyset>  
+        </mbgenerator>  
+    </target>  
+</project>  

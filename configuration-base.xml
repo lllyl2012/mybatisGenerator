@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<classPathEntry
+		location="F:\webdownload\Outlook\ibitasmbg\lib\ojdbc5.jar" />
+
+	<context id="MysqlTabl" targetRuntime="MyBatis3">
+		<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin"></plugin>  
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>  
+        <!-- Pagination -->  
+        <plugin type="com.cableex.core.util.page.dialect.OracleDirectPagetionPlugin"></plugin>  
+          
+		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+			connectionURL="jdbc:oracle:thin:@(description=(address_list=(address=(host=192.168.100.45)(protocol=tcp)(port=1521))(load_balance=yes)(failover=yes))(connect_data=(service_name=cableex)))" userId="cableex"
+			password="cableex">
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="com.cableex.core.base.domain.primitive"
+			targetProject="C:\workspaces\mmall-DB-Mapping\mybatis\">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="com.cableex.core.base.persistence.primitive"
+			targetProject="C:\workspaces\mmall-DB-Mapping\mybatis\">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.cableex.core.base.persistence.primitive" targetProject="d:\workspaces\mmall-DB-Mapping\mybatis\">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		
+		<table  tableName="T_CABLES_FILE" domainObjectName="CablesFile">
+			 <property name="ignoreQualifiersAtRuntime" value="true" />  
+            <property name="runtimeTableName" value="T_CABLES_FILE" />  
+			
+            <!-- ������� ���������� generatedKey ,MBG����sqlmpper.xml�����һ�� selectKeyԪ��������<insert>Ԫ���� �� -->  
+		</table>
+
+		<table  tableName="T_CABLES_USER" domainObjectName="User">
+			 <property name="ignoreQualifiersAtRuntime" value="true" />  
+            <property name="runtimeTableName" value="T_CABLES_USER" />  
+		</table>
+		<table  tableName="T_CABLES_LOG_ENTITY" domainObjectName="CablesLogEntity">
+			<property name="ignoreQualifiersAtRuntime" value="true" />  
+            <property name="runtimeTableName" value="T_CABLES_LOG_ENTITY" />  
+			<generatedKey column="LOG_ID" sqlStatement="select S_CABLES_LOG_ID.nextval from dual"  />  
+		</table>
+		<table  tableName="T_CABLES_MODULE" domainObjectName="CablesModule">
+			<property name="ignoreQualifiersAtRuntime" value="true" />  
+            <property name="runtimeTableName" value="T_CABLES_MODULE" />  
+			<generatedKey column="MODULE_ID" sqlStatement="select S_CABLES_MODULE_ID.nextval from dual"  />  
+		</table>
+		<table  tableName="T_CABLES_PERMISSION" domainObjectName="CablesPermission">
+			 <property name="ignoreQualifiersAtRuntime" value="true" />  
+            <property name="runtimeTableName" value="T_CABLES_PERMISSION" /> 
+			
+		</table>
+		<table  tableName="T_CABLES_ROLE" domainObjectName="CablesRole">
+			<property name="ignoreQualifiersAtRuntime" value="true" />  
+            <property name="runtimeTableName" value="T_CABLES_ROLE" />  
+			<generatedKey column="ROLE_ID" sqlStatement="select S_CABLES_ROLE_ID.nextval from dual"  />  
+		</table>
+		<table  tableName="T_CABLES_ROLE_MODULE" domainObjectName="CablesRoleModule">
+			<property name="ignoreQualifiersAtRuntime" value="true" />  
+            <property name="runtimeTableName" value="T_CABLES_ROLE_MODULE" />  
+			<generatedKey column="ROLE_MODULE_ID" sqlStatement="select S_CABLES_ROLE_MODULE_ID.nextval from dual"  />  
+		</table>
+		<table  tableName="T_CABLES_ROLE_PERMISSION" domainObjectName="CablesRolePermssion">
+			 <property name="ignoreQualifiersAtRuntime" value="true" />  
+            <property name="runtimeTableName" value="T_CABLES_ROLE_PERMISSION" />  
+		</table>
+		<table  tableName="T_CABLES_USER_ROLE" domainObjectName="CablesUserRole">
+			 <property name="ignoreQualifiersAtRuntime" value="true" />  
+            <property name="runtimeTableName" value="T_CABLES_USER_ROLE" />  
+			<generatedKey column="USER_ROLE_ID" sqlStatement="select S_CABLES_USER_ROLE_ID.nextval from dual"  />  
+		</table>
+
+		<table  tableName="T_CABLES_AUTHORITIES" domainObjectName="CablesAuthorityRules">
+			<property name="ignoreQualifiersAtRuntime" value="true" />  
+            <property name="runtimeTableName" value="T_CABLES_AUTHORITIES" />  
+			<generatedKey column="AUTH_ID" sqlStatement="select S_CABLES_AUTHORITIESRULE_ID.nextval from dual"  />  
+		</table>
+	</context>
+</generatorConfiguration>

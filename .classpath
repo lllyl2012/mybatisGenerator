@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="lib"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/workspace/mmall-DB-Mapping/lib/mybatis-generator-core-1.3.2.jar"/>
+	<classpathentry kind="lib" path="C:/workspace/mmall-DB-Mapping/lib/mysql-connector-java-5.1.24-bin.jar"/>
+	<classpathentry kind="lib" path="C:/workspace/mmall-DB-Mapping/lib/ojdbc5.jar"/>
+	<classpathentry kind="lib" path="C:/workspace/mmall-DB-Mapping/lib/xmallPlugin.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

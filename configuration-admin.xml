@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<classPathEntry location="E:\Workspace\mmall-DB-Mapping\lib" />
+
+
+	<context id="MysqlTabl" targetRuntime="MyBatis3">
+	
+		<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin"></plugin>
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+		<!-- Pagination -->
+		<plugin
+			type="com.cableex.core.util.page.dialect.OracleDirectPagetionPlugin"></plugin>
+
+
+		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+			connectionURL="jdbc:oracle:thin:@192.168.5.242:1521:mould" userId="mould" password="mould">
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="com.mould.admin.system.domain.primitive"
+			targetProject="E:\Workspace\mmall-DB-Mapping\lib\mybatis\">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="com.mould.admin.system.persistence.primitive"
+			targetProject="E:\Workspace\mmall-DB-Mapping\lib\mybatis\">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.mould.admin.system.persistence.primitive" targetProject="E:\Workspace\mmall-DB-Mapping\lib\mybatis\">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+<!-- 		<table tableName="V_PRODUCT_COLOR_AUDIT" domainObjectName="VProductColorAudit"> -->
+<!-- 			<property name="ignoreQualifiersAtRuntime" value="true" /> -->
+<!-- 			<property name="runtimeTableName" value="V_PRODUCT_COLOR_AUDIT" /> -->
+<!-- 		</table> -->
+
+<!-- 		<table tableName="T_XMALL_PRODUCTRECOMMEND" domainObjectName="XmallProductRecommend"> -->
+<!-- 			<property name="ignoreQualifiersAtRuntime" value="true" /> -->
+<!-- 			<property name="runtimeTableName" value="T_XMALL_PRODUCTRECOMMEND" /> -->
+<!-- 			<generatedKey column="RECOMMEND_ID" -->
+<!-- 				sqlStatement="select S_XMALL_PRODUCTRECOMMEND.nextval from dual" /> -->
+<!-- 		</table> -->
+		
+<!-- 		<table tableName="T_CABLES_AUTHORITIES" domainObjectName="CablesAuthorities">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="T_CABLES_AUTHORITIES" />
+			<generatedKey column="AUTH_ID"
+				sqlStatement="select S_CABLES_AUTHORITIESRULE_ID.nextval from dual" />
+		</table>
+		
+		<table tableName="T_CABLES_FILE" domainObjectName="CablesFile">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="T_CABLES_FILE" />
+			<generatedKey column="FILE_ID"
+				sqlStatement="select S_CABLES_FILE_ID.nextval from dual" />
+		</table>
+		
+		<table tableName="T_CABLES_LOG_ENTITY" domainObjectName="CablesLogEntity">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="T_CABLES_LOG_ENTITY" />
+			<generatedKey column="LOG_ID"
+				sqlStatement="select S_CABLES_LOG_ID.nextval from dual" />
+		</table>
+		
+		<table tableName="T_CABLES_MAIL_VERIFY" domainObjectName="CablesMailVerify">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="T_CABLES_MAIL_VERIFY" />
+			<generatedKey column="MAIL_ID"
+				sqlStatement="select S_CABLES_MAIL_VERRIFY_ID.nextval from dual" />
+		</table>
+		
+		<table tableName="T_CABLES_MODULE" domainObjectName="CablesModule">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="T_CABLES_MODULE" />
+			<generatedKey column="MODULE_ID"
+				sqlStatement="select S_CABLES_MODULE_ID.nextval from dual" />
+		</table>
+		
+		<table tableName="T_CABLES_PERMISSION" domainObjectName="CablesPermission">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="T_CABLES_PERMISSION" />
+			<generatedKey column="PERMISSION_ID"
+				sqlStatement="select S_CABLES_PERMISSION_ID.nextval from dual" />
+		</table>
+		
+		<table tableName="T_CABLES_ROLE" domainObjectName="CablesRole">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="T_CABLES_ROLE" />
+			<generatedKey column="ROLE_ID"
+				sqlStatement="select S_CABLES_ROLE_ID.nextval from dual" />
+		</table>
+		
+		<table tableName="T_CABLES_ROLE_MODULE" domainObjectName="CablesRoleModule">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="T_CABLES_ROLE_MODULE" />
+			<generatedKey column="ROLE_MODULE_ID"
+				sqlStatement="select S_CABLES_ROLE_MODULE_ID.nextval from dual" />
+		</table>
+		
+		<table tableName="T_CABLES_ROLE_PERMISSION" domainObjectName="CablesRolePermission">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="T_CABLES_ROLE_PERMISSION" />
+			<generatedKey column="ROLE_PERMISSION_ID"
+				sqlStatement="select S_CABLES_ROLE_PERMISSION_ID.nextval from dual" />
+		</table>
+		
+		<table tableName="T_CABLES_SMS_VERIFY" domainObjectName="CablesSmsVerify">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="T_CABLES_SMS_VERIFY" />
+			<generatedKey column="SMS_ID"
+				sqlStatement="select S_CABLES_SMS_ID.nextval from dual" />
+		</table>
+		<table tableName="SYS_USER" domainObjectName="SysUser">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="SysUser" />
+			<generatedKey column="USER_ID"
+				sqlStatement="select C_SYSUSER_ID.nextval from dual" />
+		</table>
+ -->		
+		
+		
+		
+	<!-- 	<table  tableName="MALL_COMMON_PROPERTIES" domainObjectName="MallCommonProperties">
+			 <property name="ignoreQualifiersAtRuntime" value="true" />  
+            <property name="runtimeTableName" value="MALL_COMMON_PROPERTIES" />
+           <generatedKey column="COMMON_ID" sqlStatement="select C_MALL_CMS_TYPE_ID.nextval from dual"/>
+		</table> -->
+		
+	<!-- 	<table tableName="T_CABLES_USER_ROLE" domainObjectName="CablesUserRole">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="T_CABLES_USER_ROLE" />
+			<generatedKey column="USER_ROLE_ID"
+				sqlStatement="select S_CABLES_USER_ROLE_ID.nextval from dual" />
+		</table>
+		
+		<table tableName="T_JMALL_MEMBER" domainObjectName="JmallMember">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="T_JMALL_MEMBER" />
+			<generatedKey column="MEMBER_ID"
+				sqlStatement="select S_JMALL_MEMBER_ID.nextval from dual" />
+		</table> -->
+		<table tableName="SYS_OPERATE_LOG" domainObjectName="SysOperateLog">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="SYS_OPERATE_LOG" />
+			<generatedKey column="operlog_id"
+				sqlStatement="select c_operlog_id.nextval from dual" />
+		</table>
+	</context>
+</generatorConfiguration>

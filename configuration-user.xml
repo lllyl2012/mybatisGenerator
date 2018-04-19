@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<classPathEntry location="D:\myworkspace\mmall-DB-Mapping\lib" />
+
+	<context id="MysqlTabl" targetRuntime="MyBatis3">
+		<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin"></plugin>
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+		<!-- Pagination -->
+		<!-- <plugin
+			type="com.cableex.core.util.page.dialect.OracleDirectPagetionPlugin"></plugin> -->
+ <commentGenerator>
+            <property name="suppressAllComments" value="true" /><!-- 是否取消注释 -->
+            <property name="suppressDate" value="true" /> <!-- 是否生成注释代时间戳 -->
+        </commentGenerator>
+
+		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+			connectionURL="jdbc:oracle:thin:@192.168.5.242:1521:mould" userId="mould" password="mould">
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="com.mould.mall.domain.primitive"
+			targetProject="D:\myworkspace\mmall-DB-Mapping\mybatis\">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="com.mould.mall.persistence.primitive"
+			targetProject="D:\myworkspace\mmall-DB-Mapping\mybatis\">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.mould.mall.persistence.primitive" targetProject="D:\myworkspace\mmall-DB-Mapping\mybatis\">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		
+		<!--		
+		<table  tableName="MALL_COMPANY" domainObjectName="MallCompany">
+			 <property name="ignoreQualifiersAtRuntime" value="true" />  
+            <property name="runtimeTableName" value="MALL_COMPANY" />
+           <generatedKey column="COMPANY_ID" sqlStatement="select c_company_id.nextval from dual"/>
+		</table>
+		<table  tableName="V_MALL_COMPANY_KEYWORDS" domainObjectName="VMallCompanyKeywords">
+			 <property name="ignoreQualifiersAtRuntime" value="true" />  
+            <property name="runtimeTableName" value="V_MALL_COMPANY_KEYWORDS" />
+           
+		</table>
+		<table  tableName="MALL_COLLECTION" domainObjectName="MallCollection">
+			 <property name="ignoreQualifiersAtRuntime" value="true" />  
+            <property name="runtimeTableName" value="MALL_COLLECTION" />
+           <generatedKey column="COLLECTION_ID" sqlStatement="select c_collection_id.nextval from dual"/>
+		</table>
+		<table  tableName="MALL_MESSAGE" domainObjectName="MallMessage">
+			 <property name="ignoreQualifiersAtRuntime" value="true" />  
+            <property name="runtimeTableName" value="MALL_MESSAGE" />
+           <generatedKey column="MESSAGE_ID" sqlStatement="select c_message_id.nextval from dual"/>
+		</table>
+		-->	
+	
+		
+		<table  tableName="MALL_PRODUCT" domainObjectName="MallProduct">
+			 <property name="ignoreQualifiersAtRuntime" value="true" />  
+            <property name="runtimeTableName" value="MALL_PRODUCT" />
+           <generatedKey column="PRODUCT_ID" sqlStatement="select C_MALL_PRODUCT_ID.nextval from dual"/>
+		</table> 
+<!-- 		<table tableName="MALL_COMPANY" domainObjectName="MallCompany"> -->
+<!-- 			 <property name="ignoreQualifiersAtRuntime" value="true" />   -->
+<!-- 			 <property name="runtimeTableName" value="MALL_COMPANY"/> -->
+<!-- 		</table> -->
+		
+			<!-- <table  tableName="V_MALL_BLOG_INFO" domainObjectName="V_MALL_BLOG_INFO">
+			 <property name="ignoreQualifiersAtRuntime" value="true" />  
+            <property name="runtimeTableName" value="V_MALL_BLOG_INFO" />
+		</table> -->
+		
+	</context>
+</generatorConfiguration>
